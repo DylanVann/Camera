@@ -22,16 +22,18 @@ extension DefaultCameraScreen { struct TopBar: View {
             createRightSideView()
         }
         .frame(maxWidth: .infinity)
-        .padding(.top, topPadding)
+        .padding(.top, 20)
         .padding(.bottom, 8)
         .padding(.horizontal, 20)
-        .background(Color(.mijickBackgroundPrimary80))
         .transition(.move(edge: .top))
     }}
 }}
 private extension DefaultCameraScreen.TopBar {
     @ViewBuilder func createCloseButton() -> some View { if isCloseButtonActive {
         CloseButton(action: parent.closeMCameraAction)
+            .frame(width: 32, height: 32)
+            .background(Color(.mijickBackgroundSecondary))
+            .mask(Circle())
             .frame(maxWidth: .infinity, alignment: .leading)
     }}
     @ViewBuilder func createCentralView() -> some View { if isCentralViewActive {
